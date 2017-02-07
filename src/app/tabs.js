@@ -2,6 +2,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
+import ListExampleMessages from './scheduleSearch';
 
 const styles = {
     headline: {
@@ -37,18 +38,15 @@ export default class TabsExampleSwipeable extends React.Component {
                     onChange={this.handleChange}
                     value={this.state.slideIndex}
                 >
-                    <Tab label="Tab One" value={0} />
-                    <Tab label="Tab Two" value={1} />
-                    <Tab label="Tab Three" value={2} />
+                    <Tab label="Schedule Search" value={0} />
+                    <Tab label="Home" value={1} />
+                    <Tab label="Upcoming" value={2} />
                 </Tabs>
                 <SwipeableViews
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
-                    <div>
-                        <h2 style={styles.headline}>Tabs with slide effect</h2>
-                        Swipe to see the next slide.<br />
-                    </div>
+                    <ListExampleMessages />
                     <div style={styles.slide}>
                         slide n°2
                     </div>
