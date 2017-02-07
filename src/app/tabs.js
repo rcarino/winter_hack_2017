@@ -4,6 +4,16 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import ListExampleMessages from './scheduleSearch';
 
+
+import FontIcon from 'material-ui/FontIcon';
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import Paper from 'material-ui/Paper';
+import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+
+const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
+const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+const nearbyIcon = <IconLocationOn />;
+
 const styles = {
     headline: {
         fontSize: 24,
@@ -31,7 +41,32 @@ export default class TabsExampleSwipeable extends React.Component {
         });
     };
 
+    select = (index) => this.setState({slideIndex: index});
+
+
     render() {
+        const bottomNav = (
+            <Paper zDepth={1}>
+                <BottomNavigation selectedIndex={this.state.slideIndex}>
+                    <BottomNavigationItem
+                        label="Schedules Search"
+                        icon={nearbyIcon}
+                        onTouchTap={() => this.select(0)}
+                    />
+                    <BottomNavigationItem
+                        label="Home"
+                        icon={nearbyIcon}
+                        onTouchTap={() => this.select(1)}
+                    />
+                    <BottomNavigationItem
+                        label="Upcoming"
+                        icon={nearbyIcon}
+                        onTouchTap={() => this.select(2)}
+                    />
+                </BottomNavigation>
+            </Paper>
+        );
+
         return (
             <div>
                 <SwipeableViews
@@ -46,14 +81,8 @@ export default class TabsExampleSwipeable extends React.Component {
                         slide n°3
                     </div>
                 </SwipeableViews>
-                <Tabs
-                    onChange={this.handleChange}
-                    value={this.state.slideIndex}
-                >
-                    <Tab label="Schedule Search" value={0} />
-                    <Tab label="Home" value={1} />
-                    <Tab label="Upcoming" value={2} />
-                </Tabs>
+                {bottomNav}
+
             </div>
         );
     }
