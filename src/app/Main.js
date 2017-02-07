@@ -53,27 +53,10 @@ class Main extends Component {
         onTouchTap={this.handleRequestClose}
       />
     );
-
+    console.log('this.props.children', this.props.children);
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <TabsExampleSwipeable />
-        {/*<div style={styles.container}>*/}
-          {/*<Dialog*/}
-            {/*open={this.state.open}*/}
-            {/*title="Super Secret Password"*/}
-            {/*actions={standardActions}*/}
-            {/*onRequestClose={this.handleRequestClose}*/}
-          {/*>*/}
-            {/*1-2-3-4-5*/}
-          {/*</Dialog>*/}
-          {/*<h1>Material-UI</h1>*/}
-          {/*<h2>example project</h2>*/}
-          {/*<RaisedButton*/}
-            {/*label="Super Secret Password"*/}
-            {/*secondary={true}*/}
-            {/*onTouchTap={this.handleTouchTap}*/}
-          {/*/>*/}
-        {/*</div>*/}
+        {this.props.children}
       </MuiThemeProvider>
     );
   }

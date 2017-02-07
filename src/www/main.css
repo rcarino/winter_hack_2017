@@ -6,3 +6,9 @@ body {
   font-size: 13px;
   line-height: 20px;
 }
+
+.login {
+  max-width: 300px;
+  margin: 200px auto;
+  text-align: center;
+}
