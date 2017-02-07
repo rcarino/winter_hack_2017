@@ -34,14 +34,6 @@ export default class TabsExampleSwipeable extends React.Component {
     render() {
         return (
             <div>
-                <Tabs
-                    onChange={this.handleChange}
-                    value={this.state.slideIndex}
-                >
-                    <Tab label="Schedule Search" value={0} />
-                    <Tab label="Home" value={1} />
-                    <Tab label="Upcoming" value={2} />
-                </Tabs>
                 <SwipeableViews
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
@@ -54,6 +46,14 @@ export default class TabsExampleSwipeable extends React.Component {
                         slide n°3
                     </div>
                 </SwipeableViews>
+                <Tabs
+                    onChange={this.handleChange}
+                    value={this.state.slideIndex}
+                >
+                    <Tab label="Schedule Search" value={0} />
+                    <Tab label="Home" value={1} />
+                    <Tab label="Upcoming" value={2} />
+                </Tabs>
             </div>
         );
     }

@@ -8,6 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import SearchAppBar from './searchAppBar'
 
 const iconButtonElement = (
     <IconButton
@@ -29,6 +30,7 @@ const rightIconMenu = (
 
 const ListExampleMessages = () => (
     <div>
+        <SearchAppBar />
             <List>
                 <Subheader>Today</Subheader>
                 <ListItem
