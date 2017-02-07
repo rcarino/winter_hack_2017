@@ -5,13 +5,22 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import ContentFilter from 'material-ui/svg-icons/content/filter-list';
 
-/**
- * This example is taking advantage of the composability of the `AppBar`
- * to render different components depending on the application state.
- */
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+
 class SearchAppBar extends Component {
     state = {
         logged: true,
+        open: false
+    };
+
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+
+    handleClose = () => {
+        this.setState({open: false});
     };
 
     handleChange = (event, logged) => {
@@ -31,13 +40,37 @@ class SearchAppBar extends Component {
                 <MenuItem value={true} primaryText="Softball"/>
             </SelectField>
         );
+
+        const actions = [
+            <FlatButton
+                label="Cancel"
+                primary={true}
+                onTouchTap={this.handleClose}
+            />,
+            <FlatButton
+                label="Submit"
+                primary={true}
+                disabled={true}
+                onTouchTap={this.handleClose}
+            />,
+        ];
+
+        const dialog = (<Dialog
+            title="Dialog With Actions"
+            actions={actions}
+            modal={true}
+            open={this.state.open}
+        >
+            Only actions can close this dialog.
+        </Dialog>);
         return (
             <div>
                 <AppBar
                     showMenuIconButton={false}
                     title="All Sports"
-                    iconElementRight={<IconButton><ContentFilter /></IconButton>}
+                    iconElementRight={<IconButton onClick={this.handleOpen}><ContentFilter /></IconButton>}
                 />
+                {dialog}
             </div>
         );
     }
