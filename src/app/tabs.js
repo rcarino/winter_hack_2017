@@ -7,11 +7,15 @@ import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigati
 import Paper from 'material-ui/Paper';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import ActionHome from 'material-ui/svg-icons/action/home';
-import ActionPregnantWoman from 'material-ui/svg-icons/action/pregnant-woman'
+import ActionSchedule from 'material-ui/svg-icons/action/schedule'
+import AvVideoLibrary from 'material-ui/svg-icons/av/video-library'
+import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 
-const searchIcon = <ActionSearch>Search</ActionSearch>;
-const homeIcon = <ActionHome>Home</ActionHome>;
-const upcomingIcon = <ActionPregnantWoman>Upcoming</ActionPregnantWoman>;
+const homeIcon = <ActionHome />
+const searchIcon = <ActionSearch />;
+const upcomingIcon = <ActionSchedule />;
+const videoIcon = <AvVideoLibrary />;
+const profileIcon = <ActionAccountCircle/>
 
 const styles = {
     headline: {
@@ -49,19 +53,26 @@ export default class TabsExampleSwipeable extends React.Component {
             <Paper zDepth={1} style={botStyle}>
                 <BottomNavigation selectedIndex={this.state.slideIndex}>
                     <BottomNavigationItem
-                        label="Schedules Search"
-                        icon={searchIcon}
-                        onTouchTap={() => this.select(0)}
-                    />
-                    <BottomNavigationItem
                         label="Home"
                         icon={homeIcon}
                         onTouchTap={() => this.select(1)}
                     />
                     <BottomNavigationItem
+                        label="Find Games"
+                        icon={searchIcon}
+                        onTouchTap={() => this.select(0)}
+                    />
+                    <BottomNavigationItem
                         label="Upcoming"
                         icon={upcomingIcon}
-                        onTouchTap={() => this.select(2)}
+                    />
+                    <BottomNavigationItem
+                        label="Videos"
+                        icon={videoIcon}
+                    />
+                    <BottomNavigationItem
+                        label="Profile"
+                        icon={profileIcon}
                     />
                 </BottomNavigation>
             </Paper>
