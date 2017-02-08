@@ -1,6 +1,6 @@
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import ListExampleMessages from './scheduleSearch';
+import SearchList from './SearchList';
 
 
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
@@ -73,7 +73,7 @@ export default class TabsExampleSwipeable extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
-                    <ListExampleMessages />
+                    <SearchList />
                     <div style={styles.slide}>
                         slide n°2
                     </div>
