@@ -1,5 +1,14 @@
+/*html {*/
+  /*font-family: 'Roboto', sans-serif;*/
+/*}*/
+
+@font-face {
+  font-family: "walsheim";
+  src: url("fonts/GT-Walsheim-Light.woff") format('woff');
+}
+
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: walsheim;
 }
 
 body {

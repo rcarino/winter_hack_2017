@@ -19,6 +19,7 @@ const styles = {
 };
 
 const muiTheme = getMuiTheme({
+  fontFamily: 'walsheim',
   palette: {
     primary1Color: '#233259', accent1Color: '#23cfb9'
   },
