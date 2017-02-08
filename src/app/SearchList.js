@@ -15,33 +15,33 @@ class SearchList extends Component {
             {
                 text: 'Competitive Basketball',
                 date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Podunk Community Center Court 2'
+                location: 'Asphalt Green Upper East Side'
             },
             {
                 text: 'Intermediate Softball',
-                date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Podunk Community Center Court 2'
+                date: 'Fri, Feb 10 2017 6PM - 8PM',
+                location: 'Coleman Field'
             },
             {
                 text: 'Beginner Volleyball',
-                date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Podunk Community Center Court 2'
+                date: 'Wed, Feb 15 2017 8PM - 9PM',
+                location: 'Central Park Volleyball Courts'
             },
             {
                 text: 'Competitive Basketball',
-                date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Podunk Community Center Court 2',
+                date: 'Tues, March 21 2017 5PM - 6PM',
+                location: 'Brooklyn Sports Club',
                 disabled: true
             },
             {
                 text: 'Beginner Dodgeball',
-                date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Podunk Community Center Court 2'
+                date: 'Thur, March 23 2017 7PM - 8PM',
+                location: 'West Bronx Recreation Center'
             },
             {
-                text: 'Competitive Soccer',
-                date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Podunk Community Center Court 2'
+                text: 'Casual Soccer',
+                date: 'Thur, March 23 2017 8PM - 10PM',
+                location: 'Soccer Field At Chelsea Park'
             }
         ]
     };
@@ -53,14 +53,15 @@ class SearchList extends Component {
                 {
                     text: 'Competitive Basketball',
                     date: 'Wed, Feb 08 2017 8PM - 9PM',
-                    location: 'Podunk Community Center Court 2'
+                    location: 'Barclays'
                 },
                 {
                     text: 'Competitive Basketball',
-                    date: 'Wed, Feb 08 2017 8PM - 9PM',
-                    location: 'Podunk Community Center Court 2',
+                    date: 'Tues, March 21 2017 8PM - 9PM',
+                    location: 'Brooklyn Sports Club',
                     disabled: true
                 }
+
             ]
         });
     }
@@ -81,11 +82,12 @@ class SearchList extends Component {
         }
     }
 
-    handleRowClick(row) {
+    handleRowClick = (e, row) => {
         if (row.disabled) {
+            e.preventDefault();
             this.setState({notifyOpen: true});
         }
-    }
+    };
 
     handleClose = () => {
         this.setState({notifyOpen: false});
@@ -99,8 +101,10 @@ class SearchList extends Component {
             const color = obj.disabled ? {color: 'lightgray'} : {};
             const secondaryText = (
                 <p style={color}><span style={dateColor}>{obj.date}</span> -- {obj.location}</p>);
-            listBody.push((<Link to="details"><ListItem key={i} primaryText={obj.text} secondaryText={secondaryText}
-                                     disabled={obj.disabled} style={color}/></Link>));
+            listBody.push((<Link key={'l' + i} to="details" onClick={(e) => this.handleRowClick(e, obj)}>
+                <ListItem key={i} primaryText={obj.text} secondaryText={secondaryText}
+                                     disabled={obj.disabled} style={color}/>
+            </Link>));
             listBody.push((<Divider key={'d' + i}/>));
         }
         listBody.pop();

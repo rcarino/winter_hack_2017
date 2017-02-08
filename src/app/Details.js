@@ -87,9 +87,9 @@ class Login extends Component {
       <div className="details" style={{ marginBottom: '200px' }}>
         <div className="header" style={headerStyle}>
           <div className="copy">
-            <h1>Pickup Basketball</h1>
+            <h1>Competitive Basketball</h1>
             <h3>Tues, March 21</h3>
-            <h3>Barclays</h3>
+            <h3>Brooklyn Sports Club</h3>
           </div>
         </div>
         <img src="https://s3.amazonaws.com/sportspass.hack/details-actions.png" style={{ width: '100%' }}/>
