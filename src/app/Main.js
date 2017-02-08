@@ -20,7 +20,7 @@ const styles = {
 
 const muiTheme = getMuiTheme({
   palette: {
-    accent1Color: deepOrange500,
+    primary1Color: '#233259', accent1Color: '#23cfb9'
   },
 });
 
@@ -29,7 +29,7 @@ class Main extends Component {
     super(props, context);
 
     this.state = {
-      open: false,
+      open: false
     };
   }
 
