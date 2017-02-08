@@ -53,7 +53,7 @@ class Main extends Component {
         onTouchTap={this.handleRequestClose}
       />
     );
-    console.log('this.props.children', this.props.children);
+
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         {this.props.children}

@@ -1,9 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import Main from './Main';
-import Login from './login';
+import Entry from './Entry';
+import Details from './Details';
 import TabsExampleSwipeable from './tabs';
 
 // Needed for onTouchTap
@@ -13,10 +14,11 @@ injectTapEventPlugin();
 // Render the main app react component into the app div.
 // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
 render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute component={Login} />
-      <Route path="app" component={TabsExampleSwipeable}/>
-      <Route path="*" component={TabsExampleSwipeable}/>
+      <IndexRoute component={Entry} />
+      <Router path="search" component={TabsExampleSwipeable} />
+      <Route path="details" component={Details} />
+      <Route path="*" component={TabsExampleSwipeable} />
     </Route>
   </Router>), document.getElementById('app'));

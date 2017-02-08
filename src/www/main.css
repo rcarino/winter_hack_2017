@@ -12,3 +12,7 @@ body {
   margin: 200px auto;
   text-align: center;
 }
+
+.entry img {
+  width: 100%; 
+}
