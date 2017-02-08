@@ -81,11 +81,12 @@ class SearchList extends Component {
         }
     }
 
-    handleRowClick(row) {
+    handleRowClick = (e, row) => {
         if (row.disabled) {
+            e.preventDefault();
             this.setState({notifyOpen: true});
         }
-    }
+    };
 
     handleClose = () => {
         this.setState({notifyOpen: false});
@@ -99,8 +100,10 @@ class SearchList extends Component {
             const color = obj.disabled ? {color: 'lightgray'} : {};
             const secondaryText = (
                 <p style={color}><span style={dateColor}>{obj.date}</span> -- {obj.location}</p>);
-            listBody.push((<Link to="details"><ListItem key={i} primaryText={obj.text} secondaryText={secondaryText}
-                                     disabled={obj.disabled} style={color}/></Link>));
+            listBody.push((<Link key={'l' + i} to="details" onClick={(e) => this.handleRowClick(h, obj)}>
+                <ListItem key={i} primaryText={obj.text} secondaryText={secondaryText}
+                                     disabled={obj.disabled} style={color}/>
+            </Link>));
             listBody.push((<Divider key={'d' + i}/>));
         }
         listBody.pop();
