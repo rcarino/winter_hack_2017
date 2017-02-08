@@ -1,7 +1,7 @@
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import SearchList from './SearchList';
-
+import HomeTab from './HomeTab';
 
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
@@ -11,11 +11,12 @@ import ActionSchedule from 'material-ui/svg-icons/action/schedule'
 import AvVideoLibrary from 'material-ui/svg-icons/av/video-library'
 import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 
-const homeIcon = <ActionHome />
+
+const homeIcon = <ActionHome />;
 const searchIcon = <ActionSearch />;
 const upcomingIcon = <ActionSchedule />;
 const videoIcon = <AvVideoLibrary />;
-const profileIcon = <ActionAccountCircle/>
+const profileIcon = <ActionAccountCircle/>;
 
 const styles = {
     headline: {
@@ -29,7 +30,7 @@ const styles = {
     },
 };
 
-export default class TabsExampleSwipeable extends React.Component {
+export default class TabbedView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -55,12 +56,12 @@ export default class TabsExampleSwipeable extends React.Component {
                     <BottomNavigationItem
                         label="Home"
                         icon={homeIcon}
-                        onTouchTap={() => this.select(1)}
+                        onTouchTap={() => this.select(0)}
                     />
                     <BottomNavigationItem
                         label="Find Games"
                         icon={searchIcon}
-                        onTouchTap={() => this.select(0)}
+                        onTouchTap={() => this.select(1)}
                     />
                     <BottomNavigationItem
                         label="Upcoming"
@@ -84,13 +85,8 @@ export default class TabsExampleSwipeable extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
-                    <SearchList />
-                    <div style={styles.slide}>
-                        slide n°2
-                    </div>
-                    <div style={styles.slide}>
-                        slide n°3
-                    </div>
+                    <HomeTab style={styles.slide} handleImgClick={() => this.select(1)}/>
+                    <SearchList style={styles.slide} />
                 </SwipeableViews>
                 {bottomNav}
 
