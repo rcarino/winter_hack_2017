@@ -15,7 +15,7 @@ class SearchList extends Component {
             {
                 text: 'Competitive Basketball',
                 date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Asphalt Green Upper East Side'
+                location: 'Asphalt Green East Side'
             },
             {
                 text: 'Intermediate Softball',
@@ -35,13 +35,13 @@ class SearchList extends Component {
             },
             {
                 text: 'Beginner Dodgeball',
-                date: 'Thur, March 23 2017 7PM - 8PM',
-                location: 'West Bronx Recreation Center'
+                date: 'Thu, March 23 2017 7PM - 8PM',
+                location: 'West Bronx Rec Center'
             },
             {
                 text: 'Casual Soccer',
-                date: 'Thur, March 23 2017 8PM - 10PM',
-                location: 'Soccer Field At Chelsea Park'
+                date: 'Thu, March 23 2017 8PM - 10PM',
+                location: 'Chelsea Park'
             }
         ]
     };
@@ -64,22 +64,6 @@ class SearchList extends Component {
 
             ]
         });
-    }
-
-    componentWillMount() {
-        if (window.location.hash.startsWith('#/search/')) {
-            // Supports linking from newly available game notification
-            this.setState({
-                searchTitle: 'Competitive Basketball',
-                searchList: [
-                    {
-                        text: 'Competitive Basketball',
-                        date: 'Wed, Feb 08 2017 8PM - 9PM',
-                        location: 'Podunk Community Center Court 2'
-                    }
-                ]
-            });
-        }
     }
 
     handleRowClick = (e, row) => {

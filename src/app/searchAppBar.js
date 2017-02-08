@@ -151,8 +151,8 @@ class SearchAppBar extends Component {
             <SelectField
                 hintText="CoRec And Men's"
             >
-                <MenuItem value={0} primaryText="CoRec And Men's" />
-                <MenuItem value={1} primaryText="CoRec" />
+                <MenuItem value={0} primaryText="Coed And Men's" />
+                <MenuItem value={1} primaryText="Coed" />
                 <MenuItem value={2} primaryText="Men's" />
             </SelectField>
         </Dialog>);
