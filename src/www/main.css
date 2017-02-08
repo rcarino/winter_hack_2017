@@ -15,14 +15,26 @@ body {
   font-size: 13px;
   line-height: 20px;
   margin: 0;
+  font-family: walsheim;
 }
 
-.login {
-  max-width: 300px;
-  margin: 200px auto;
-  text-align: center;
+a {
+  text-decoration: none;
 }
 
-.entry img {
-  width: 100%; 
+.details .header {
+  position: relative;
+}
+.details .copy {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+.details h1 {
+  font-weight: 200;
+}
+.details h3 {
+  margin: 0;
+  font-weight: 200;
 }
