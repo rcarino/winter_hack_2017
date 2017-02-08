@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router';
 
 const style = {
@@ -38,18 +40,42 @@ const reserveStyle = {
 }
 
 class Login extends Component {
+  state = {
+    open: false,
+  };
+
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
+
   render() {
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
+
     return (
       <div className="details">
         <div className="header" style={headerStyle}>
           <div className="copy">
             <h1>Pickup Basketball</h1>
             <h3>Tues, March 21</h3>
-            <h3>The Streets</h3>
+            <h3>Barclays</h3>
           </div>
         </div>
         <img src="https://s3.amazonaws.com/sportspass.hack/details-actions.png" style={{ width: '100%' }}/>
-        <a href="http://www.zogsports.com/" className="reserve" style={reserveStyle}>RESERVE SLOT</a>
         <div className="info" style={{ margin: '15px 40px' }}>
           <div>
             <label style={{ color: '#233259', fontFamily: 'Roboto', fontWeight: 'bolder', fontSize: '13px' }}>Level: </label>
@@ -64,6 +90,7 @@ class Login extends Component {
             <span>advanced</span>
           </div>
         </div>
+        <img src="https://s3.amazonaws.com/sportspass.hack/reviews.png" style={{ width: '100%', margin: '20px auto', marginLeft: '30px' }} />
         <div className="waiver" style={{ width: '80%', margin: '20px auto 200px' }}>
           <div className="waiver-copy" style={{ border: '1px solid black', padding: '20px', overflow: 'scroll', maxHeight: '300px' }}>
             In consideration of being allowed to participate in any way, in any ZogSportsNY ,LLC ("ZogSports") programs, events or activities, I understand, acknowledge and agree to the following:<br/>
@@ -82,6 +109,7 @@ class Login extends Component {
             <label htmlFor="confirm-input">I acknowledge that, I HAVE READ THIS WAIVER AND RELEASE OF LIABILITY CAREFULLY AND I FULLY UNDERSTAND ITS TERMS</label>
           </div>
         </div>
+        <Link to="confirmation" className="reserve" style={reserveStyle}>RESERVE SLOT</Link>
       </div>
     )
   }

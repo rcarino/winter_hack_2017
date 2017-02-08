@@ -5,6 +5,7 @@ import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import Main from './Main';
 import Entry from './Entry';
 import Details from './Details';
+import Confirmation from './Confirmation';
 import TabbedView from './TabbedView';
 
 // Needed for onTouchTap
@@ -19,6 +20,7 @@ render((
       <IndexRoute component={TabbedView} />
       <Router path="search" component={TabbedView} />
       <Route path="details" component={Details} />
+      <Route path="confirmation" component={Confirmation} />
       <Route path="*" component={TabbedView} />
     </Route>
   </Router>), document.getElementById('app'));
