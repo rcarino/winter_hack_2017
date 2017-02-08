@@ -20,6 +20,7 @@ class SearchAppBar extends Component {
 
     handleClose = () => {
         this.setState({open: false});
+        this.props.handleSearchAction();
     };
 
     handleChange = (event, logged) => {
@@ -55,7 +56,7 @@ class SearchAppBar extends Component {
         ];
 
         const dialog = (<Dialog
-            title="Dialog With Actions"
+            title="THE DIALOG TITLE"
             actions={actions}
             modal={true}
             open={this.state.open}
@@ -66,7 +67,7 @@ class SearchAppBar extends Component {
             <div>
                 <AppBar
                     showMenuIconButton={false}
-                    title="All Sports"
+                    title={this.props.searchTitle}
                     iconElementRight={<IconButton onClick={this.handleOpen}><ContentFilter /></IconButton>}
                 />
                 {dialog}
