@@ -45,6 +45,13 @@ export default class TabbedView extends React.Component {
         });
     };
 
+    componentWillMount() {
+        if (window.location.hash.startsWith('#/search/')) {
+            // Supports linking from newly available game notification
+            this.setState({slideIndex: 1});
+        }
+    }
+
     select = (index) => this.setState({slideIndex: index});
 
 
