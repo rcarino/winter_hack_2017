@@ -7,12 +7,13 @@ import ContentFilter from 'material-ui/svg-icons/content/filter-list';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchAppBar extends Component {
     state = {
         logged: true,
-        open: false
+        open: false,
+        sportFilter: null,
+        intensityFilter: null
     };
 
     handleOpen = () => {
@@ -21,11 +22,16 @@ class SearchAppBar extends Component {
 
     handleClose = () => {
         this.setState({open: false});
+        this.props.handleSearchAction();
     };
 
     handleChange = (event, logged) => {
         this.setState({logged: logged});
     };
+
+    handleSportFilterChange = (event, index, value) => this.setState({sportFilter: value});
+
+    handleIntensityFilterChange = (event, index, value) => this.setState({intensityFilter: value});
 
     render() {
         const sportFilter = (<SelectField
@@ -49,25 +55,62 @@ class SearchAppBar extends Component {
             />,
             <FlatButton
                 label="Submit"
-                primary={true}
-                disabled={true}
+                secondary={true}
                 onTouchTap={this.handleClose}
             />,
         ];
 
         const dialog = (<Dialog
-            title="Dialog With Actions"
+            title="Filter Games"
             actions={actions}
             modal={true}
             open={this.state.open}
         >
-            Only actions can close this dialog.
+            <SelectField
+                value={this.state.sportFilter}
+                onChange={this.handleSportFilterChange}
+                hintText="All Sports"
+            >
+                <MenuItem value={0} primaryText="All Sports" />
+                <MenuItem value={1} primaryText="Basketball" />
+                <MenuItem value={2} primaryText="Volleyball" />
+                <MenuItem value={3} primaryText="Dodgeball" />
+                <MenuItem value={4} primaryText="Softball" />
+                <MenuItem value={5} primaryText="Soccer" />
+            </SelectField>
+
+            <SelectField
+                value={this.state.intensityFilter}
+                onChange={this.handleIntensityFilterChange}
+                hintText="All Intensities"
+            >
+                <MenuItem value={0} primaryText="Beginner" />
+                <MenuItem value={1} primaryText="Casual" />
+                <MenuItem value={2} primaryText="Intermediate" />
+                <MenuItem value={3} primaryText="Competitive" />
+            </SelectField>
+
+            <SelectField
+                hintText="Indoor And Outdoor"
+            >
+                <MenuItem value={0} primaryText="Indoor And Outdoor" />
+                <MenuItem value={1} primaryText="Indoor" />
+                <MenuItem value={2} primaryText="Outdoor" />
+            </SelectField>
+
+            <SelectField
+                hintText="CoRec And Men's"
+            >
+                <MenuItem value={0} primaryText="CoRec And Men's" />
+                <MenuItem value={1} primaryText="CoRec" />
+                <MenuItem value={2} primaryText="Men's" />
+            </SelectField>
         </Dialog>);
         return (
             <div>
                 <AppBar
                     showMenuIconButton={false}
-                    title="All Sports"
+                    title={this.props.searchTitle}
                     iconElementRight={<IconButton onClick={this.handleOpen}><ContentFilter /></IconButton>}
                 />
                 {dialog}

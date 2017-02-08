@@ -3,24 +3,15 @@
  * which incorporates components provided by Material-UI.
  */
 import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
-import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TabsExampleSwipeable from './tabs'
 
-const styles = {
-  container: {
-    textAlign: 'center',
-    paddingTop: 200,
-  },
-};
 
 const muiTheme = getMuiTheme({
+  fontFamily: 'walsheim',
   palette: {
-    accent1Color: deepOrange500,
+    primary1Color: '#233259', accent1Color: '#23cfb9'
   },
 });
 
@@ -29,7 +20,7 @@ class Main extends Component {
     super(props, context);
 
     this.state = {
-      open: false,
+      open: false
     };
   }
 
@@ -37,13 +28,13 @@ class Main extends Component {
     this.setState({
       open: false,
     });
-  }
+  };
 
   handleTouchTap = () => {
     this.setState({
       open: true,
     });
-  }
+  };
 
   render() {
     const standardActions = (

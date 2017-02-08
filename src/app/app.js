@@ -5,7 +5,7 @@ import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import Main from './Main';
 import Entry from './Entry';
 import Details from './Details';
-import TabsExampleSwipeable from './tabs';
+import TabbedView from './TabbedView';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -16,9 +16,9 @@ injectTapEventPlugin();
 render((
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute component={Entry} />
-      <Router path="search" component={TabsExampleSwipeable} />
+      <IndexRoute component={TabbedView} />
+      <Router path="search" component={TabbedView} />
       <Route path="details" component={Details} />
-      <Route path="*" component={TabsExampleSwipeable} />
+      <Route path="*" component={TabbedView} />
     </Route>
   </Router>), document.getElementById('app'));

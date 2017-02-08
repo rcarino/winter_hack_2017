@@ -1,18 +1,22 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-// From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
-import ListExampleMessages from './scheduleSearch';
+import SearchList from './SearchList';
+import HomeTab from './HomeTab';
 
-
-import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import ActionSearch from 'material-ui/svg-icons/action/search';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import ActionSchedule from 'material-ui/svg-icons/action/schedule'
+import AvVideoLibrary from 'material-ui/svg-icons/av/video-library'
+import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
-const nearbyIcon = <IconLocationOn />;
+
+const homeIcon = <ActionHome />;
+const searchIcon = <ActionSearch />;
+const upcomingIcon = <ActionSchedule />;
+const videoIcon = <AvVideoLibrary />;
+const profileIcon = <ActionAccountCircle/>;
 
 const styles = {
     headline: {
@@ -26,7 +30,7 @@ const styles = {
     },
 };
 
-export default class TabsExampleSwipeable extends React.Component {
+export default class TabbedView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -41,6 +45,13 @@ export default class TabsExampleSwipeable extends React.Component {
         });
     };
 
+    componentWillMount() {
+        if (window.location.hash.startsWith('#/search/')) {
+            // Supports linking from newly available game notification
+            this.setState({slideIndex: 1});
+        }
+    }
+
     select = (index) => this.setState({slideIndex: index});
 
 
@@ -50,19 +61,26 @@ export default class TabsExampleSwipeable extends React.Component {
             <Paper zDepth={1} style={botStyle}>
                 <BottomNavigation selectedIndex={this.state.slideIndex}>
                     <BottomNavigationItem
-                        label="Schedules Search"
-                        icon={nearbyIcon}
+                        label="Home"
+                        icon={homeIcon}
                         onTouchTap={() => this.select(0)}
                     />
                     <BottomNavigationItem
-                        label="Home"
-                        icon={nearbyIcon}
+                        label="Find Games"
+                        icon={searchIcon}
                         onTouchTap={() => this.select(1)}
                     />
                     <BottomNavigationItem
                         label="Upcoming"
-                        icon={nearbyIcon}
-                        onTouchTap={() => this.select(2)}
+                        icon={upcomingIcon}
+                    />
+                    <BottomNavigationItem
+                        label="Videos"
+                        icon={videoIcon}
+                    />
+                    <BottomNavigationItem
+                        label="Profile"
+                        icon={profileIcon}
                     />
                 </BottomNavigation>
             </Paper>
@@ -74,13 +92,8 @@ export default class TabsExampleSwipeable extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
-                    <ListExampleMessages />
-                    <div style={styles.slide}>
-                        slide n°2
-                    </div>
-                    <div style={styles.slide}>
-                        slide n°3
-                    </div>
+                    <HomeTab style={styles.slide} handleImgClick={() => this.select(1)}/>
+                    <SearchList style={styles.slide} />
                 </SwipeableViews>
                 {bottomNav}
 
