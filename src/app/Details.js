@@ -48,15 +48,15 @@ class Login extends Component {
           </div>
         </div>
         <img src="https://s3.amazonaws.com/sportspass.hack/details-actions.png" style={{ width: '100%' }}/>
-        <Link to="/app" className="reserve" style={reserveStyle}>RESERVE SLOT</Link>
+        <a href="http://www.zogsports.com/" className="reserve" style={reserveStyle}>RESERVE SLOT</a>
         <div className="info">
-          <div>
+          <div style={{ margin: '20px 0' }}>
             <label htmlFor="">level</label>
             <span>advanced</span>
           </div>
         </div>
-        <div className="waiver" style={{ width: '80%', margin: '0 auto', overflow: 'scroll', maxHeight: '300px', padding: '20px', border: '1px solid black' }}>
-          <div className="waiver-copy">
+        <div className="waiver" style={{ width: '80%', margin: '0 auto', marginBottom: '200px' }}>
+          <div className="waiver-copy" style={{ border: '1px solid black', padding: '20px', overflow: 'scroll', maxHeight: '300px' }}>
             In consideration of being allowed to participate in any way, in any ZogSportsNY ,LLC ("ZogSports") programs, events or activities, I understand, acknowledge and agree to the following:<br/>
 1. I understand the physical requirements of the program, event or activity in which I will be participating, and certify that I am physically fit and able to participate in the program, event or activity, and have not been advised otherwise by a qualified medical professional.<br/>
 2. I agree to comply with any and all rules, regulations, terms and conditions for participation in the program, event or activity, including but not limited to the rules of any sport that I may participate in. I agree to inspect the equipment, facilities and premises to be used prior to participation. If I believe that anything is unsafe, I will inform ZogSports officials, team captains, referees or facilities owners of the issue and refuse to participate if not corrected.<br/>
@@ -68,9 +68,9 @@ class Login extends Component {
 8. I intend that this Waiver and Release of Liability shall be construed broadly to provide a release and waiver to the maximum extent permissible under applicable law.<br/>
 9. I HAVE READ THIS WAIVER AND RELEASE OF LIABILITY CAREFULLY AND I FULLY UNDERSTAND ITS TERMS, AND I UNDERSTAND THAT I HAVE GIVEN UP SUBSTANTIAL RIGHTS BY SIGNING THIS DOCUMENT, AND I SIGN IT KNOWINGLY, INTELLIGENTLY AND VOLUNTARILY WITHOUT ANY INDUCEMENT OR DURESS.<br/>
           </div>
-          <div className="waiver-confirm" style={{ marginBotton: '100px' }}>
-            <input type="text" />
-            <span>I confirm</span>
+          <div className="waiver-confirm" style={{ cursor: 'pointer' }}>
+            <input type="checkbox" id="confirm-input"/>
+            <label htmlFor="confirm-input">I acknowledge that, I HAVE READ THIS WAIVER AND RELEASE OF LIABILITY CAREFULLY AND I FULLY UNDERSTAND ITS TERMS</label>
           </div>
         </div>
       </div>

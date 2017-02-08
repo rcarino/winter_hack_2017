@@ -18,6 +18,10 @@ body {
   font-family: walsheim;
 }
 
+a {
+  text-decoration: none;
+}
+
 .details .header {
   position: relative;
 }
