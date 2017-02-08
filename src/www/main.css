@@ -15,16 +15,7 @@ body {
   font-size: 13px;
   line-height: 20px;
   margin: 0;
-}
-
-.login {
-  max-width: 300px;
-  margin: 200px auto;
-  text-align: center;
-}
-
-.entry img {
-  width: 100%;
+  font-family: walsheim;
 }
 
 .details .header {
@@ -32,20 +23,14 @@ body {
 }
 .details .copy {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
+  left: 20px;
   color: white;
 }
-.details .reserve {
+.details h1 {
+  font-weight: 200;
+}
+.details h3 {
   margin: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: block;
-  height: 50px;
-  color: white;
-  background: wheat;
-  text-align: center;
-  text-decoration: none;
-  font-size: 23px;
+  font-weight: 200;
 }

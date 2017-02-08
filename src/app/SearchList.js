@@ -5,6 +5,7 @@ import {darkBlack} from 'material-ui/styles/colors';
 import SearchAppBar from './searchAppBar';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import { Link } from 'react-router';
 
 class SearchList extends Component {
     state = {
@@ -98,8 +99,8 @@ class SearchList extends Component {
             const color = obj.disabled ? {color: 'lightgray'} : {};
             const secondaryText = (
                 <p style={color}><span style={dateColor}>{obj.date}</span> -- {obj.location}</p>);
-            listBody.push((<ListItem key={i} primaryText={obj.text} secondaryText={secondaryText}
-                                     disabled={obj.disabled} style={color} onClick={() => this.handleRowClick(obj)}/>));
+            listBody.push((<Link to="details"><ListItem key={i} primaryText={obj.text} secondaryText={secondaryText}
+                                     disabled={obj.disabled} style={color}/></Link>));
             listBody.push((<Divider key={'d' + i}/>));
         }
         listBody.pop();
