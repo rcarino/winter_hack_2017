@@ -14,5 +14,28 @@ body {
 }
 
 .entry img {
-  width: 100%; 
+  width: 100%;
+}
+
+.details .header {
+  position: relative;
+}
+.details .copy {
+  position: absolute;
+  bottom: 0;
+  color: white;
+}
+.details .reserve {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  height: 50px;
+  color: white;
+  background: wheat;
+  text-align: center;
+  text-decoration: none;
+  font-size: 23px;
 }

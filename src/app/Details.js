@@ -7,20 +7,24 @@ const style = {
   margin: 12,
 };
 
+const headerStyle = {
+  backgroundImage: 'url("https://s3.amazonaws.com/sportspass.hack/basketball.jpg")',
+  backgroundSize: 'cover',
+  height: '350px'
+}
+
 class Login extends Component {
   render() {
     return (
-      <div className="login">
-        <TextField
-          hintText="Username"
-          floatingLabelText="Username"
-        /><br/>
-        <TextField
-          hintText="Password Field"
-          floatingLabelText="Password"
-          type="password"
-        />
-        <Link to="/app"><RaisedButton label="Login" primary={true} style={style}/></Link>
+      <div className="details">
+        <div className="header" style={headerStyle}>
+          <div className="copy">
+            <h3>Pickup Basketball</h3>
+            <p>Tues, March 21</p>
+            <p>The Streets</p>
+          </div>
+        </div>
+        <Link to="/app" className="reserve">Reserve</Link>
       </div>
     )
   }
