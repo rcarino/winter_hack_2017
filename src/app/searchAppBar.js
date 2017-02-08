@@ -138,6 +138,8 @@ class SearchAppBar extends Component {
 
             <SelectField
                 hintText="Indoor And Outdoor"
+                value={this.state.io}
+                onChange={(e, i, v) => this.setState({io: v})}
             >
                 <MenuItem value={0} primaryText="Indoor And Outdoor" />
                 <MenuItem value={1} primaryText="Indoor" />
@@ -145,11 +147,14 @@ class SearchAppBar extends Component {
             </SelectField>
 
             <SelectField
-                hintText="Coed And Men's"
+                hintText="Any Gender"
+                value={this.state.gender}
+                onChange={(e, i, v) => this.setState({gender: v})}
             >
-                <MenuItem value={0} primaryText="Coed And Men's" />
+                <MenuItem value={0} primaryText="Any Gender" />
                 <MenuItem value={1} primaryText="Coed" />
-                <MenuItem value={2} primaryText="Men's" />
+                <MenuItem value={2} primaryText="Women's" />
+                <MenuItem value={3} primaryText="Men's" />
             </SelectField>
         </Dialog>);
         return (
