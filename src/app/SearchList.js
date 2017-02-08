@@ -15,7 +15,7 @@ class SearchList extends Component {
             {
                 text: 'Competitive Basketball',
                 date: 'Wed, Feb 08 2017 8PM - 9PM',
-                location: 'Asphalt Green East Side'
+                location: 'Indoor Hoops Brooklyn'
             },
             {
                 text: 'Intermediate Softball',
@@ -53,7 +53,7 @@ class SearchList extends Component {
                 {
                     text: 'Competitive Basketball',
                     date: 'Wed, Feb 08 2017 8PM - 9PM',
-                    location: 'Barclays'
+                    location: 'Indoor Hoops Brooklyn'
                 },
                 {
                     text: 'Competitive Basketball',

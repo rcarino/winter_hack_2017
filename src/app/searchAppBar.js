@@ -68,10 +68,6 @@ class SearchAppBar extends Component {
         this.props.handleSearchAction();
     };
 
-    handleChange = (event, logged) => {
-        this.setState({logged: logged});
-    };
-
     handleSportFilterChange = (event, index, value) => this.setState({sportFilter: value});
 
     handleIntensityFilterChange = (event, index, value) => this.setState({intensityFilter: value});
@@ -104,8 +100,8 @@ class SearchAppBar extends Component {
 
             <SelectField
                 floatingLabelText="Location"
-                value={1}
-                onChange={this.handleChange}
+                value={this.state.location}
+                onChange={(e, i, v) => this.setState({location: v})}
             >
                 <MenuItem value={1} primaryText="Nearby" leftIcon={(<MapsMyLocation/>)} />
                 <MenuItem value={2} primaryText="Manhattan" />
