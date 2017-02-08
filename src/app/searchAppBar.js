@@ -149,7 +149,7 @@ class SearchAppBar extends Component {
             </SelectField>
 
             <SelectField
-                hintText="CoRec And Men's"
+                hintText="Coed And Men's"
             >
                 <MenuItem value={0} primaryText="Coed And Men's" />
                 <MenuItem value={1} primaryText="Coed" />
