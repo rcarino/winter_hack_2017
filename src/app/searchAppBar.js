@@ -7,7 +7,6 @@ import ContentFilter from 'material-ui/svg-icons/content/filter-list';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchAppBar extends Component {
     state = {
