@@ -5,14 +5,15 @@ import SwipeableViews from 'react-swipeable-views';
 import ListExampleMessages from './scheduleSearch';
 
 
-import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import ActionSearch from 'material-ui/svg-icons/action/search';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import ActionPregnantWoman from 'material-ui/svg-icons/action/pregnant-woman'
 
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
-const nearbyIcon = <IconLocationOn />;
+const searchIcon = <ActionSearch>Search</ActionSearch>;
+const homeIcon = <ActionHome>Home</ActionHome>;
+const upcomingIcon = <ActionPregnantWoman>Upcoming</ActionPregnantWoman>;
 
 const styles = {
     headline: {
@@ -51,17 +52,17 @@ export default class TabsExampleSwipeable extends React.Component {
                 <BottomNavigation selectedIndex={this.state.slideIndex}>
                     <BottomNavigationItem
                         label="Schedules Search"
-                        icon={nearbyIcon}
+                        icon={searchIcon}
                         onTouchTap={() => this.select(0)}
                     />
                     <BottomNavigationItem
                         label="Home"
-                        icon={nearbyIcon}
+                        icon={homeIcon}
                         onTouchTap={() => this.select(1)}
                     />
                     <BottomNavigationItem
                         label="Upcoming"
-                        icon={nearbyIcon}
+                        icon={upcomingIcon}
                         onTouchTap={() => this.select(2)}
                     />
                 </BottomNavigation>
