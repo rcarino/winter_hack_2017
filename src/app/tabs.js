@@ -45,8 +45,9 @@ export default class TabsExampleSwipeable extends React.Component {
 
 
     render() {
+        const botStyle = {position: 'fixed', 'bottom': 0, 'width': '100%'};
         const bottomNav = (
-            <Paper zDepth={1}>
+            <Paper zDepth={1} style={botStyle}>
                 <BottomNavigation selectedIndex={this.state.slideIndex}>
                     <BottomNavigationItem
                         label="Schedules Search"
