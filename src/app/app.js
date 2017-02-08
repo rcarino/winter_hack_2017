@@ -19,7 +19,9 @@ render((
     <Route path="/" component={Main}>
       <IndexRoute component={TabbedView} />
       <Router path="search" component={TabbedView} />
-      <Route path="details" component={Details} />
+      <Route path="details" component={Details}>
+        <Route path="*" component={Details} />
+      </Route>
       <Route path="confirmation" component={Confirmation} />
       <Route path="*" component={TabbedView} />
     </Route>

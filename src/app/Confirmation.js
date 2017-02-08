@@ -35,7 +35,7 @@ class Confirmation extends Component {
           <h1>Basketball</h1>
           <h2>Court 1</h2>
           <p>Tuesday, February 12<br/>9:00pm - 10:00pm</p>
-          <a href="http://zogsports.com" style={reserveStyle}>CONFIRM MY RESERVATION</a>
+          <Link to="details/confirmed" style={reserveStyle}>CONFIRM MY RESERVATION</Link>
         </div>
         <Link
           to="details"
