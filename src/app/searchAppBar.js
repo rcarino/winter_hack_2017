@@ -7,6 +7,49 @@ import ContentFilter from 'material-ui/svg-icons/content/filter-list';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import TimePicker from 'material-ui/TimePicker';
+import MapsMyLocation from 'material-ui/svg-icons/maps/my-location';
+
+class TimePickers extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {start: null, end: null};
+    }
+
+    handleChangeStart = (event, date) => {
+        this.setState({start: date});
+    };
+
+    handleChangeEnd = (event, date) => {
+        this.setState({end: date});
+    };
+
+    render() {
+        const start = new Date();
+        start.setHours(0, 0);
+        const end = new Date();
+        end.setHours(24, 0);
+        return (
+            <div>
+                <TimePicker
+                    format="ampm"
+                    floatingLabelText="Start Time"
+                    value={this.state.start}
+                    onChange={this.handleChangeStart}
+                    defaultTime={start}
+                />
+                <TimePicker
+                    format="ampm"
+                    floatingLabelText="End Time"
+                    value={this.state.end}
+                    onChange={this.handleChangeEnd}
+                    defaultTime={end}
+                />
+            </div>
+        );
+    }
+}
 
 class SearchAppBar extends Component {
     state = {
@@ -34,23 +77,13 @@ class SearchAppBar extends Component {
     handleIntensityFilterChange = (event, index, value) => this.setState({intensityFilter: value});
 
     render() {
-        const sportFilter = (<SelectField
-                floatingLabelText="Ready?"
-                value={this.state.value}
-                onChange={this.handleChange}
-            >
-                <MenuItem value={null} primaryText="All Sports"/>
-                <MenuItem value={false} primaryText="Basketball"/>
-                <MenuItem value={true} primaryText="Volleyball"/>
-                <MenuItem value={true} primaryText="Dodgeball"/>
-                <MenuItem value={true} primaryText="Softball"/>
-            </SelectField>
-        );
-
         const actions = [
             <FlatButton
                 label="Cancel"
-                primary={true}
+                onTouchTap={this.handleClose}
+            />,
+            <FlatButton
+                label="Clear"
                 onTouchTap={this.handleClose}
             />,
             <FlatButton
@@ -65,7 +98,23 @@ class SearchAppBar extends Component {
             actions={actions}
             modal={true}
             open={this.state.open}
+            autoScrollBodyContent={true}
         >
+            <TimePickers/>
+
+            <SelectField
+                floatingLabelText="Location"
+                value={1}
+                onChange={this.handleChange}
+            >
+                <MenuItem value={1} primaryText="Nearby" leftIcon={(<MapsMyLocation/>)} />
+                <MenuItem value={2} primaryText="Manhattan" />
+                <MenuItem value={3} primaryText="Brooklyn" />
+                <MenuItem value={4} primaryText="Queens" />
+                <MenuItem value={5} primaryText="Bronx" />
+                <MenuItem value={6} primaryText="Staten Island" />
+            </SelectField>
+
             <SelectField
                 value={this.state.sportFilter}
                 onChange={this.handleSportFilterChange}
@@ -84,6 +133,7 @@ class SearchAppBar extends Component {
                 onChange={this.handleIntensityFilterChange}
                 hintText="All Intensities"
             >
+                <MenuItem value={-1} primaryText="All Intensities" />
                 <MenuItem value={0} primaryText="Beginner" />
                 <MenuItem value={1} primaryText="Casual" />
                 <MenuItem value={2} primaryText="Intermediate" />
