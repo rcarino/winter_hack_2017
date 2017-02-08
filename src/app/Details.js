@@ -33,7 +33,8 @@ const reserveStyle = {
   textDecoration: 'none',
   fontSize: '15px',
   fontWeight: 'bold',
-  lineHeight: '50px'
+  lineHeight: '50px',
+  cursor: 'pointer'
 }
 
 class Login extends Component {
@@ -49,13 +50,21 @@ class Login extends Component {
         </div>
         <img src="https://s3.amazonaws.com/sportspass.hack/details-actions.png" style={{ width: '100%' }}/>
         <a href="http://www.zogsports.com/" className="reserve" style={reserveStyle}>RESERVE SLOT</a>
-        <div className="info">
-          <div style={{ margin: '20px 0' }}>
-            <label htmlFor="">level</label>
+        <div className="info" style={{ margin: '15px 40px' }}>
+          <div>
+            <label style={{ color: '#233259', fontFamily: 'Roboto', fontWeight: 'bolder', fontSize: '13px' }}>Level: </label>
+            <span>advanced</span>
+          </div>
+          <div>
+            <label style={{ color: '#233259', fontFamily: 'Roboto', fontWeight: 'bolder', fontSize: '13px' }}>Level: </label>
+            <span>advanced</span>
+          </div>
+          <div>
+            <label style={{ color: '#233259', fontFamily: 'Roboto', fontWeight: 'bolder', fontSize: '13px' }}>Level: </label>
             <span>advanced</span>
           </div>
         </div>
-        <div className="waiver" style={{ width: '80%', margin: '0 auto', marginBottom: '200px' }}>
+        <div className="waiver" style={{ width: '80%', margin: '20px auto 200px' }}>
           <div className="waiver-copy" style={{ border: '1px solid black', padding: '20px', overflow: 'scroll', maxHeight: '300px' }}>
             In consideration of being allowed to participate in any way, in any ZogSportsNY ,LLC ("ZogSports") programs, events or activities, I understand, acknowledge and agree to the following:<br/>
 1. I understand the physical requirements of the program, event or activity in which I will be participating, and certify that I am physically fit and able to participate in the program, event or activity, and have not been advised otherwise by a qualified medical professional.<br/>
